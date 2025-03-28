@@ -1,1 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabi Livshitz | Professional Poker Coaching</title>
+  <!-- Favicon (icon in browser tab) -->
+  <link rel="icon" href="gaby.png" type="image/png">
+
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      direction: ltr;
+      background-color: #121212;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li {
+      cursor: pointer;
+    }
+    nav ul li:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('https://via.placeholder.com/1600x900?text=Hero+Background') center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #e51b23;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-primary:hover {
+      background: #bb171d;
+    }
+
+    /* Featured (logos) */
+    .featured {
+      background: #1c1c1c;
+      padding: 2rem;
+      text-align: center;
+    }
+    .featured h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+    }
+    .marquee-logos {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .marquee-logos img {
+      height: 80px;
+      margin: 0 1.5rem;
+      opacity: 0.9;
+      transition: opacity 0.3s, transform 0.3s;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .marquee-logos img:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* About */
+    .about {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .about p {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .about .gaby-img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px; 
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .social-link {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .social-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .social-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Why Learn With Me */
+    .why-me {
+      background: #1c1c1c;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .why-me h2 {
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-size: 2rem;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 2rem;
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      color: #e51b23;
+    }
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Call to Action */
+    .call-to-action {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .call-to-action h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .call-to-action p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    /* Pricing */
+    .price-list {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .price-list h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .price-table-container {
+      overflow-x: auto;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    table.price-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+      text-align: center;
+    }
+    table.price-table th,
+    table.price-table td {
+      border: 1px solid #444;
+      padding: 1rem;
+    }
+    thead tr {
+      background: #2a2a2a;
+    }
+    tbody tr:nth-child(even) {
+      background: #1c1c1c;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .faq h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    .faq-item {
+      margin-bottom: 2rem;
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item p {
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp-btn {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #25D366;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 9999;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .floating-whatsapp-btn img {
+      width: 28px;
+      height: 28px;
+    }
+    .floating-whatsapp-btn:hover {
+      background: #1eb059;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      body {
+        text-align: center;
+      }
+      .marquee-logos img {
+        height: 50px;
+      }
+      .social-link {
+        width: 50px;
+        height: 50px;
+      }
+      .floating-whatsapp-btn {
+        bottom: 10px;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+      .floating-whatsapp-btn img {
+        width: 24px; 
+        height: 24px;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        max-width: 90%;
+      }
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Gabi Livshitz</div>
+    <nav>
+      <ul>
+        <li onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">Who Am I</li>
+        <li onclick="document.getElementById('why-me').scrollIntoView({ behavior: 'smooth' })">Why Learn With Me</li>
+        <li onclick="document.getElementById('faq').scrollIntoView({ behavior: 'smooth' })">FAQ</li>
+        <li>
+          <a href="/index.html" class="lang-btn">עברית</a>
+        </li>        
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Professional Poker Coaching</h1>
+      <p>Take your game to the next level with a pro traveling the world.</p>
+      <a href="#price-list-section" class="btn-primary">I want to start</a>
+    </div>
+  </section>
+
+  <!-- Featured logos -->
+  <section class="featured">
+    <h2>Featured In:</h2>
+    <div class="marquee-container">
+      <div class="marquee-logos">
+        <img src="eptlogo.png" alt="EPT Logo">
+        <img src="ipclogo.png" alt="IPC Logo">
+        <img src="wptlogo.png" alt="WPT Logo">
+        <img src="wsoplogo.png" alt="WSOP Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>Who Am I?</h2>
+    <img class="gaby-img" src="bracelet.png" alt="Gabi holding the world championship bracelet">
+    <p>
+      Some words about Gabi Livshitz, his professional background, and why you might want to learn from him. 
+      You can talk about his approach to the game, success stories from tournaments, etc.
+    </p>
+
+    <a href="https://pokerdb.thehendonmob.com/player.php?a=r&n=377587" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <img src="thehendonmob.png" 
+           alt="HendonMob Profile"
+           style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4)">
+    </a>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 2rem; margin-top: 2rem;">
+      <a href="https://www.youtube.com/watch?v=dEV5gHUUhYs" target="_blank" rel="noopener noreferrer" style="max-width: 200px;">
+        <img src="nolimit.png" alt="No Limit Podcast" style="width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4);">
+      </a>
+      <a href="https://www.youtube.com/watch?v=ARm8ZYqzaLc" target="_blank" rel="noopener noreferrer" style="max-width: 200px;">
+        <img src="keves.png" alt="Keves Podcast" style="width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4);">
+      </a>
+      <a href="https://www.youtube.com/watch?v=QK2vRriB6RE" target="_blank" rel="noopener noreferrer" style="max-width: 200px;">
+        <img src="nuts.png" alt="Nuts Podcast" style="width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4);">
+      </a>
+    </div>
+
+    <!-- Social links -->
+    <div class="social-links">
+      <a href="https://www.instagram.com/sosickstagram" class="social-link" target="_blank" aria-label="Instagram">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/Gabylivs" class="social-link" target="_blank" aria-label="Facebook">
+        <img src="facebook.png" alt="Facebook">
+      </a>
+      <a href="https://open.spotify.com/show/2Op6rxjHxGc01UWAiVKhRz?si=5b52795b555d45f3" class="social-link" target="_blank" aria-label="Spotify Podcast">
+        <img src="spotify.png" alt="Spotify Podcast">
+      </a>
+      <a href="https://chat.whatsapp.com/LF4rfcplQtIEoWUukT5PDO" class="social-link" target="_blank" aria-label="WhatsApp Group">
+        <img src="whatsapp.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.twitch.tv/kidrurim" class="social-link" target="_blank" aria-label="Twitch Channel">
+        <img src="twitch.png" alt="Twitch">
+      </a>
+    </div>
+  </section>
+
+  <!-- Why Learn With Me -->
+  <section class="why-me" id="why-me">
+    <h2>Why Learn With Me?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Extensive Experience</h3>
+        <p>Years of playing tournaments around the world brought me deep understanding of various playing styles.</p>
+      </div>
+      <div class="card">
+        <h3>Personalized Coaching</h3>
+        <p>Lessons are tailored to your level and needs, guiding your progress at the right pace.</p>
+      </div>
+      <div class="card">
+        <h3>Supportive Community</h3>
+        <p>Join a growing community of learners, share knowledge, and keep improving beyond the lessons.</p>
+      </div>
+      <div class="card">
+        <h3>Winning Strategies</h3>
+        <p>Up-to-date methods that have proven successful in leading tournaments worldwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="call-to-action">
+    <h2>Ready to level up?</h2>
+    <p>It's time to start playing like the pros.</p>
+  </section>
+
+  <!-- Pricing -->
+  <section class="price-list" id="price-list-section">
+    <h2>Coaching Rates</h2>
+    <div class="price-table-container">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Type of Coaching</th>
+            <th>Rate</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Individual</td>
+            <td>₪600 / hour<br>VAT included</td>
+            <td>Minimum 10-hour commitment</td>
+          </tr>
+          <tr>
+            <td>Pair (2 People)</td>
+            <td>₪800 / hour<br>VAT included</td>
+            <td>Minimum 10-hour commitment</td>
+          </tr>
+          <tr>
+            <td>Small Group (3-4)</td>
+            <td>₪1000 / hour<br>VAT included</td>
+            <td>Can book 2-hour sessions, no long-term commitment needed</td>
+          </tr>
+          <tr>
+            <td>Large Groups</td>
+            <td>---</td>
+            <td>Contact for details</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>I have no poker experience. Are the lessons suitable for me?</h3>
+      <p>Absolutely! The coaching is built to your level. Whether you're completely new or have basic experience, we'll start with fundamentals and progress at your pace.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long does it take to reach a professional level?</h3>
+      <p>It depends on lesson frequency, your practice, and personal goals. Some students see major improvements within weeks, while others opt for a longer, deeper journey.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are sessions in-person or online?</h3>
+      <p>We can arrange lessons online (video calls) or face-to-face, depending on your preference and availability.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which types of games do we focus on?</h3>
+      <p>Mainly No-Limit Hold’em, but we can explore other variants (Omaha, Mixed Games) upon request.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I can't complete all the hours consecutively?</h3>
+      <p>We can spread the hours out over a flexible schedule. If there are special constraints, we'll find a solution.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I pay?</h3>
+      <p>Payment can be made in cash, bank transfer, or other online methods. We'll figure out the most convenient way for you.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are lessons also suitable for advanced players?</h3>
+      <p>Definitely. We can delve into advanced topics like range analysis, GTO, ICM in tournaments, and more, depending on your needs.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gabi Livshitz - All rights reserved.</p>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/972525801730?text=Hi+Gabi,+I'm+interested+in+poker+lessons!"
+     class="floating-whatsapp-btn"
+     target="_blank"
+     rel="noopener noreferrer">
+    Message me now
+    <img src="whatsapp.png" alt="WhatsApp icon">
+  </a>
+
+</body>
+</html>
 
