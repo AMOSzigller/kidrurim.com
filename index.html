@@ -18,7 +18,7 @@
       background-color: #121212;
       color: #fff;
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: hidden; /* למנוע גלילה לצדדים במידה ויש רכיבים מחוץ למסך */
     }
 
     a {
@@ -26,7 +26,7 @@
       color: inherit;
     }
 
-    /* כותרת עליונה (הניווט) */
+    /* כותרת עליונה (Header) */
     header {
       position: fixed;
       top: 0;
@@ -118,38 +118,50 @@
       background: #bb171d;
     }
 
-    /* אזור "מוצג ב" (Featured In) */
+    /* אזור "הופעתי בין היתר ב" */
     .featured {
       background: #1c1c1c;
       padding: 2rem;
       text-align: center;
     }
-
     .featured h2 {
       margin-bottom: 1rem;
       font-size: 1.5rem;
     }
 
-    .logos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
+    /* מעטפת marquee */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
     }
 
-    .logos img {
+    /* לוגואים בתנועה */
+    .marquee-logos {
+      display: inline-block;
+      white-space: nowrap; /* כדי שיהיו בשורה אחת ארוכה */
+      animation: marquee 20s linear infinite; /* 20s - משך התנועה */
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .marquee-logos img {
       height: 80px;
+      margin: 0 1.5rem; /* רווח בין לוגו ללוגו */
       opacity: 0.9;
       transition: opacity 0.3s, transform 0.3s;
+      display: inline-block;
+      vertical-align: middle;
     }
 
-    .logos img:hover {
+    .marquee-logos img:hover {
       opacity: 1;
       transform: scale(1.05);
     }
 
-    /* אזור "אודות" */
+    /* אזור "מי אני?" */
     .about {
       max-width: 1000px;
       margin: 0 auto;
@@ -248,7 +260,7 @@
       line-height: 1.6;
     }
 
-    /* אזור קריאה לפעולה (ללא הכפתור) */
+    /* אזור קריאה לפעולה (ללא כפתור) */
     .call-to-action {
       text-align: center;
       padding: 4rem 2rem;
@@ -262,7 +274,40 @@
 
     .call-to-action p {
       font-size: 1.1rem;
-      margin-bottom: 0; /* אין כפתור, אז אין מה להפריד */
+      margin-bottom: 0;
+    }
+
+    /* מחירון שיעורים (טבלה) */
+    .price-list {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .price-list h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .price-table-container {
+      overflow-x:auto;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: right; /* יישור טקסט לימין */
+    }
+    table.price-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+    }
+    table.price-table th,
+    table.price-table td {
+      border: 1px solid #444;
+      padding: 1rem;
+    }
+    thead tr {
+      background: #2a2a2a;
+    }
+    tbody tr:nth-child(even) {
+      background: #1c1c1c;
     }
 
     /* אזור וואטסאפ */
@@ -310,8 +355,8 @@
 
     /* התאמות למסכים קטנים */
     @media (max-width: 480px) {
-      .logos img {
-        height: 60px;
+      .marquee-logos img {
+        height: 50px; /* הקטנת הלוגואים במסכים צרים */
       }
       .social-link {
         width: 50px;
@@ -359,7 +404,7 @@
     <div class="hero-content">
       <h1>שיעורי פוקר פרטיים</h1>
       <p>קחו את המשחק שלכם לרמה הבאה עם שחקן טורנירים מקצועי שחורש את העולם.</p>
-      <!-- אפשר להפנות ישירות לחלק הוואטסאפ -->
+      <!-- כפתור שמוביל לאזור הוואטסאפ למטה -->
       <a href="#whatsapp" class="btn-primary">אני רוצה להתחיל</a>
     </div>
   </section>
@@ -367,29 +412,35 @@
   <!-- אזור "הופעתי בין היתר ב" -->
   <section class="featured">
     <h2>הופעתי בין היתר ב:</h2>
-    <div class="logos">
-      <!-- החלף בנתיבים המתאימים לקבצים logo1.png, logo2.png וכו' -->
-      <img src="logo1.png" alt="Logo 1">
-      <img src="logo2.png" alt="Logo 2">
-      <img src="logo3.png" alt="Logo 3">
-      <img src="logo4.png" alt="Logo 4">
+    <div class="marquee-container">
+      <div class="marquee-logos">
+        <!-- החלף במספר הלוגואים הרלוונטי לך -->
+        <img src="eptlogo.png" alt="EPT Logo">
+        <img src="ipclogo.png" alt="IPC Logo">
+        <img src="wptlogo.png" alt="WPT Logo">
+        <img src="wsoplogo.png" alt="WSOP Logo">
+      </div>
     </div>
   </section>
 
-  <!-- אודות גבי -->
+  <!-- אזור "מי אני?" -->
   <section class="about" id="about">
     <h2>מי אני?</h2>
-    <img class="gaby-img" src="gaby.png" alt="גבי ליבשיץ">
+    <img class="gaby-img" src="bracelet.png" alt="גבי ליבשיץ">
     <p>
-      שמי גבי ליבשיץ, שחקן פוקר מקצועי עם ניסיון של שנים בטורנירים בינלאומיים.
-      אני מטייל ברחבי העולם, משתתף בטורנירים הגדולים והיוקרתיים ביותר, ומשתף את הידע שלי
-      עם כל מי שרוצה להעמיק את ההבנה במשחק.
+      כמה מילים על גבי ליבשיץ, על הניסיון המקצועי שלו, ועל הסיבות שבזכותן מומלץ ללמוד אצלו. 
+      אפשר להרחיב על פילוסופיית המשחק, סיפורי הצלחה מטורנירים, וכל פרט שתרצו לשתף.
     </p>
-    <p>
-      השיעורים שלי מתאימים למגוון רחב של רמות משחק, ממתחילים ועד לכאלו שרוצים ללטש
-      את היכולות המתקדמות ביותר. אני מזמין אתכם לגלות את סודות הזכייה שלי, ולקבל כלים
-      פרקטיים כדי לממש את מלוא הפוטנציאל שלכם בשולחן.
-    </p>
+
+    <!-- קישור וצילום מסך מהאתר thehendonmob -->
+    <a href="https://pokerdb.thehendonmob.com/player.php?a=r&n=377587" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <!-- הגדלנו ל-800 פיקסלים (אפשר לשנות לפי הצורך) -->
+      <img src="thehendonmob.png" 
+           alt="HendonMob Profile"
+           style="max-width: 800px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4)">
+    </a>
 
     <!-- קישורים לרשתות חברתיות (עם אייקונים) -->
     <div class="social-links">
@@ -405,7 +456,7 @@
       <a href="https://open.spotify.com/show/2Op6rxjHxGc01UWAiVKhRz?si=5b52795b555d45f3" class="social-link" target="_blank" aria-label="Spotify Podcast">
         <img src="spotify.png" alt="Spotify Podcast">
       </a>
-      <!-- וואטסאפ -->
+      <!-- וואטסאפ קבוצתי -->
       <a href="https://chat.whatsapp.com/LF4rfcplQtIEoWUukT5PDO" class="social-link" target="_blank" aria-label="WhatsApp Group">
         <img src="whatsapp.png" alt="WhatsApp">
       </a>
@@ -435,10 +486,48 @@
     </div>
   </section>
 
-  <!-- קריאה לפעולה (ללא הכפתור) -->
+  <!-- קריאה לפעולה (ללא כפתור) -->
   <section class="call-to-action">
     <h2>רוצים לקחת צעד קדימה?</h2>
     <p>הגיע הזמן להתחיל לשחק כמו המקצוענים.</p>
+  </section>
+
+  <!-- מחירון שיעורים (טבלה) -->
+  <section class="price-list">
+    <h2>מחירון שיעורים</h2>
+    <div class="price-table-container">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>סוג שיעור</th>
+            <th>מחיר</th>
+            <th>הערות</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>יחיד</td>
+            <td>600₪ / שעה<br>כולל מע"מ</td>
+            <td>התחייבות מינימום של 10 שעות</td>
+          </tr>
+          <tr>
+            <td>זוג</td>
+            <td>800₪ / שעה<br>כולל מע"מ</td>
+            <td>התחייבות מינימום של 10 שעות</td>
+          </tr>
+          <tr>
+            <td>קבוצה קטנה (3-4)</td>
+            <td>1000₪ / שעה<br>כולל מע"מ</td>
+            <td>ניתן לסגור לשעתיים, אין צורך בהתחייבות ארוכת טווח</td>
+          </tr>
+          <tr>
+            <td>קבוצות גדולות</td>
+            <td></td>
+            <td>פנו בפרטי ונדון בזה</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <!-- אזור וואטסאפ -->
@@ -451,7 +540,7 @@
       <img src="whatsapp.png" alt="WhatsApp icon">
       כתבו לי עכשיו
     </a>
-    <!-- החלף 972541234567 למספר האמיתי של גבי -->
+    <!-- החלף 972525801730 למספר האמיתי של גבי -->
   </section>
 
   <!-- כותרת תחתונה -->
