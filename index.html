@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>גבי ליבשיץ | שיעורי פוקר פרטיים</title>
-  <link rel="icon" href="gaby.png" type="image/png">
-
-
   <style>
     /* הגדרות בסיסיות */
     * {
@@ -21,7 +18,7 @@
       background-color: #121212;
       color: #fff;
       line-height: 1.6;
-      overflow-x: hidden; /* למנוע גלילה לצדדים אם יש אלמנטים מחוץ למסך */
+      overflow-x: hidden;
     }
 
     a {
@@ -141,9 +138,8 @@
       align-items: center;
     }
 
-    /* שינוי חדש: הגדלנו את הלוגואים כברירת מחדל */
     .logos img {
-      height: 80px; /* במקום 50px */
+      height: 80px;
       opacity: 0.9;
       transition: opacity 0.3s, transform 0.3s;
     }
@@ -202,7 +198,7 @@
     .social-link img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* או contain, בהתאם לסגנון האייקון */
+      object-fit: cover;
     }
 
     .social-link:hover {
@@ -252,7 +248,7 @@
       line-height: 1.6;
     }
 
-    /* אזור קריאה לפעולה נוספת */
+    /* אזור קריאה לפעולה (ללא הכפתור) */
     .call-to-action {
       text-align: center;
       padding: 4rem 2rem;
@@ -266,62 +262,37 @@
 
     .call-to-action p {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 0; /* אין כפתור, אז אין מה להפריד */
     }
 
-    /* טופס יצירת קשר */
-    .contact-form {
-      background: #1c1c1c;
-      max-width: 600px;
-      margin: 0 auto 4rem;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    /* אזור וואטסאפ */
+    .whatsapp-contact {
+      text-align: center;
+      padding: 4rem 2rem;
     }
 
-    .contact-form h3 {
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      font-size: 1.3rem;
-    }
-
-    .contact-form label {
-      display: block;
-      margin-bottom: 0.5rem;
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #25D366; /* צבע וואטסאפ */
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 4px;
       font-weight: bold;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 4px;
-      background: #2a2a2a;
-      color: #fff;
+      text-decoration: none;
       font-size: 1rem;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: #bbb;
-    }
-
-    .contact-form button {
-      background: #e51b23;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 4px;
-      color: #fff;
-      font-size: 1rem;
-      text-transform: uppercase;
-      cursor: pointer;
       transition: background 0.3s ease;
+      cursor: pointer;
     }
 
-    .contact-form button:hover {
-      background: #bb171d;
+    .whatsapp-btn:hover {
+      background: #1eb059;
+    }
+
+    .whatsapp-btn img {
+      width: 24px;
+      height: 24px;
+      margin-left: 0.5rem;
     }
 
     /* כותרת תחתונה (Footer) */
@@ -337,10 +308,10 @@
       margin-bottom: 0;
     }
 
-    /* שינוי חדש: מדיה קוורי נוסף למכשירים צרים (כמו אייפון) */
+    /* התאמות למסכים קטנים */
     @media (max-width: 480px) {
       .logos img {
-        height: 60px; /* מעט קטן יותר במסכים סופר-צרים */
+        height: 60px;
       }
       .social-link {
         width: 50px;
@@ -348,7 +319,6 @@
       }
     }
 
-    /* התאמה למסכים קטנים (טאבלטים) */
     @media (max-width: 768px) {
       .hero-content h1 {
         font-size: 2.2rem;
@@ -379,7 +349,7 @@
       <ul>
         <li onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">אודות</li>
         <li onclick="document.getElementById('why-me').scrollIntoView({behavior: 'smooth'})">למה ללמוד אצלי</li>
-        <li onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">צור קשר</li>
+        <li onclick="document.getElementById('whatsapp').scrollIntoView({behavior: 'smooth'})">צור קשר</li>
       </ul>
     </nav>
   </header>
@@ -389,7 +359,8 @@
     <div class="hero-content">
       <h1>שיעורי פוקר פרטיים</h1>
       <p>קחו את המשחק שלכם לרמה הבאה עם שחקן טורנירים מקצועי שחורש את העולם.</p>
-      <a href="#contact" class="btn-primary">אני רוצה להתחיל</a>
+      <!-- אפשר להפנות ישירות לחלק הוואטסאפ -->
+      <a href="#whatsapp" class="btn-primary">אני רוצה להתחיל</a>
     </div>
   </section>
 
@@ -408,7 +379,6 @@
   <!-- אודות גבי -->
   <section class="about" id="about">
     <h2>מי אני?</h2>
-    <!-- החלף את הנתיב ל-gaby.png או לכל תמונה רלוונטית אחרת -->
     <img class="gaby-img" src="gaby.png" alt="גבי ליבשיץ">
     <p>
       שמי גבי ליבשיץ, שחקן פוקר מקצועי עם ניסיון של שנים בטורנירים בינלאומיים.
@@ -465,31 +435,23 @@
     </div>
   </section>
 
-  <!-- קריאה לפעולה נוספת -->
+  <!-- קריאה לפעולה (ללא הכפתור) -->
   <section class="call-to-action">
     <h2>רוצים לקחת צעד קדימה?</h2>
-    <p>השאירו פרטים ואחזור אליכם בהקדם כדי לבנות תוכנית אימון אישית.</p>
-    <a href="#contact" class="btn-primary">צור קשר עכשיו</a>
+    <p>הגיע הזמן להתחיל לשחק כמו המקצוענים.</p>
   </section>
 
-  <!-- טופס יצירת קשר -->
-  <section id="contact" class="contact-form">
-    <h3>טופס יצירת קשר</h3>
-    <form action="#" method="post">
-      <label for="name">שם מלא</label>
-      <input type="text" id="name" name="name" placeholder="לדוגמה: יוסי כהן" required>
-
-      <label for="email">אימייל</label>
-      <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
-
-      <label for="phone">טלפון</label>
-      <input type="tel" id="phone" name="phone" placeholder="לדוגמה: 050-0000000" required>
-
-      <label for="message">מה תרצו לשפר במשחק שלכם?</label>
-      <textarea id="message" name="message" rows="5" placeholder="ספרו לי בקצרה על הרמה הנוכחית ועל הציפיות שלכם..." required></textarea>
-
-      <button type="submit">שליחה</button>
-    </form>
+  <!-- אזור וואטסאפ -->
+  <section class="whatsapp-contact" id="whatsapp">
+    <h2>לחצו על הכפתור ונדבר</h2>
+    <a class="whatsapp-btn"
+       href="https://wa.me/972525801730?text=היי+גבי,+אני+מתעניין/ת+בשיעורי+פוקר!"
+       target="_blank"
+       rel="noopener noreferrer">
+      <img src="whatsapp.png" alt="WhatsApp icon">
+      כתבו לי עכשיו
+    </a>
+    <!-- החלף 972541234567 למספר האמיתי של גבי -->
   </section>
 
   <!-- כותרת תחתונה -->
