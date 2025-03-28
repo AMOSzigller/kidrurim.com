@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>גבי ליבשיץ | שיעורי פוקר פרטיים</title>
+  <title>גבי ליבשיץ | אימון פוקר בדרך לניצחון</title>
   <style>
     /* הגדרות בסיסיות */
     * {
@@ -18,7 +18,7 @@
       background-color: #121212;
       color: #fff;
       line-height: 1.6;
-      overflow-x: hidden; /* למנוע גלילה לצדדים במידה ויש רכיבים מחוץ למסך */
+      overflow-x: hidden; /* למנוע גלילה לצדדים אם יש רכיבים מחוץ למסך */
     }
 
     a {
@@ -181,8 +181,9 @@
       line-height: 1.8;
     }
 
+    /* הגדלת התמונה של bracelet.png */
     .about .gaby-img {
-      max-width: 300px;
+      max-width: 600px;
       border-radius: 8px;
       margin-bottom: 2rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -392,9 +393,10 @@
     <div class="logo">גבי ליבשיץ</div>
     <nav>
       <ul>
-        <li onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">אודות</li>
-        <li onclick="document.getElementById('why-me').scrollIntoView({behavior: 'smooth'})">למה ללמוד אצלי</li>
-        <li onclick="document.getElementById('whatsapp').scrollIntoView({behavior: 'smooth'})">צור קשר</li>
+        <!-- "מי אני?" במקום "אודות" -->
+        <li onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">מי אני?</li>
+        <li onclick="document.getElementById('why-me').scrollIntoView({ behavior: 'smooth' })">למה ללמוד אצלי</li>
+        <li onclick="document.getElementById('whatsapp').scrollIntoView({ behavior: 'smooth' })">צור קשר</li>
       </ul>
     </nav>
   </header>
@@ -402,9 +404,8 @@
   <!-- אזור Hero -->
   <section class="hero">
     <div class="hero-content">
-      <h1>שיעורי פוקר פרטיים</h1>
+      <h1>אימון פוקר בדרך לניצחון</h1>
       <p>קחו את המשחק שלכם לרמה הבאה עם שחקן טורנירים מקצועי שחורש את העולם.</p>
-      <!-- כפתור שמוביל לאזור הוואטסאפ למטה -->
       <a href="#whatsapp" class="btn-primary">אני רוצה להתחיל</a>
     </div>
   </section>
@@ -414,7 +415,7 @@
     <h2>הופעתי בין היתר ב:</h2>
     <div class="marquee-container">
       <div class="marquee-logos">
-        <!-- החלף במספר הלוגואים הרלוונטי לך -->
+        <!-- החלף או השאר את הקבצים eptlogo.png, ipclogo.png, wptlogo.png, wsoplogo.png -->
         <img src="eptlogo.png" alt="EPT Logo">
         <img src="ipclogo.png" alt="IPC Logo">
         <img src="wptlogo.png" alt="WPT Logo">
@@ -426,7 +427,7 @@
   <!-- אזור "מי אני?" -->
   <section class="about" id="about">
     <h2>מי אני?</h2>
-    <img class="gaby-img" src="bracelet.png" alt="גבי ליבשיץ">
+    <img class="gaby-img" src="bracelet.png" alt="גבי עם צמיד אליפות העולם">
     <p>
       כמה מילים על גבי ליבשיץ, על הניסיון המקצועי שלו, ועל הסיבות שבזכותן מומלץ ללמוד אצלו. 
       אפשר להרחיב על פילוסופיית המשחק, סיפורי הצלחה מטורנירים, וכל פרט שתרצו לשתף.
@@ -436,11 +437,43 @@
     <a href="https://pokerdb.thehendonmob.com/player.php?a=r&n=377587" 
        target="_blank" 
        rel="noopener noreferrer">
-      <!-- הגדלנו ל-800 פיקסלים (אפשר לשנות לפי הצורך) -->
       <img src="thehendonmob.png" 
            alt="HendonMob Profile"
-           style="max-width: 800px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4)">
+           style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4)">
     </a>
+
+    <!-- כותרת לפודקאסטים / ראיונות -->
+    <h3 style="margin-top: 3rem;">פודקאסטים וראיונות</h3>
+    <p>הנה כמה קישורים לפרקים בהם גבי התארח, כדי שתוכלו להכיר מקרוב את הדרך ואת התובנות שלו.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 2rem;">
+      <!-- פודקאסט 1 -->
+      <a href="https://www.youtube.com/watch?v=dEV5gHUUhYs"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display: inline-block; max-width: 200px;">
+        <img src="nolimit.png" 
+             alt="No Limit Podcast"
+             style="width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4);">
+      </a>
+      <!-- פודקאסט 2 -->
+      <a href="https://www.youtube.com/watch?v=ARm8ZYqzaLc"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display: inline-block; max-width: 200px;">
+        <img src="keves.png" 
+             alt="Keves Podcast"
+             style="width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4);">
+      </a>
+      <!-- פודקאסט 3 -->
+      <a href="https://www.youtube.com/watch?v=QK2vRriB6RE"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display: inline-block; max-width: 200px;">
+        <img src="nuts.png" 
+             alt="Nuts Podcast"
+             style="width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.4);">
+      </a>
+    </div>
 
     <!-- קישורים לרשתות חברתיות (עם אייקונים) -->
     <div class="social-links">
@@ -459,6 +492,10 @@
       <!-- וואטסאפ קבוצתי -->
       <a href="https://chat.whatsapp.com/LF4rfcplQtIEoWUukT5PDO" class="social-link" target="_blank" aria-label="WhatsApp Group">
         <img src="whatsapp.png" alt="WhatsApp">
+      </a>
+      <!-- טוויץ' -->
+      <a href="https://www.twitch.tv/kidrurim" class="social-link" target="_blank" aria-label="Twitch Channel">
+        <img src="twitch.png" alt="Twitch">
       </a>
     </div>
   </section>
