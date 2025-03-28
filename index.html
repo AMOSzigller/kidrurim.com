@@ -11,7 +11,6 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: Arial, sans-serif;
       direction: rtl;
@@ -20,7 +19,6 @@
       line-height: 1.6;
       overflow-x: hidden; /* למנוע גלילה לצדדים אם יש רכיבים מחוץ למסך */
     }
-
     a {
       text-decoration: none;
       color: inherit;
@@ -39,24 +37,20 @@
       justify-content: space-between;
       padding: 1rem 2rem;
     }
-
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
     }
-
     nav ul li {
       cursor: pointer;
     }
-
     nav ul li:hover {
       text-decoration: underline;
     }
@@ -72,37 +66,29 @@
       padding: 0 2rem;
       position: relative;
     }
-
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
-
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 800px;
       margin: 0 auto;
     }
-
     .hero-content h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-
     .hero-content p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-
     .btn-primary {
       display: inline-block;
       background: #e51b23;
@@ -114,7 +100,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .btn-primary:hover {
       background: #bb171d;
     }
@@ -125,39 +110,32 @@
       padding: 2rem;
       text-align: center;
     }
-
     .featured h2 {
       margin-bottom: 1rem;
       font-size: 1.5rem;
     }
-
-    /* מעטפת marquee */
     .marquee-container {
       width: 100%;
       overflow: hidden;
     }
-
     /* לוגואים בתנועה */
     .marquee-logos {
       display: inline-block;
-      white-space: nowrap; /* כדי שיהיו בשורה אחת ארוכה */
+      white-space: nowrap;
       animation: marquee 20s linear infinite;
     }
-
     @keyframes marquee {
       0%   { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
-
     .marquee-logos img {
       height: 80px;
-      margin: 0 1.5rem; /* רווח בין לוגו ללוגו */
+      margin: 0 1.5rem;
       opacity: 0.9;
       transition: opacity 0.3s, transform 0.3s;
       display: inline-block;
       vertical-align: middle;
     }
-
     .marquee-logos img:hover {
       opacity: 1;
       transform: scale(1.05);
@@ -170,21 +148,22 @@
       padding: 4rem 2rem;
       text-align: center;
     }
-
     .about h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
     }
-
     .about p {
       margin-bottom: 2rem;
       font-size: 1.1rem;
       line-height: 1.8;
     }
-
     .about .gaby-img {
-      max-width: 600px; /* תמונה גדולה יותר */
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px; /* התאמה למובייל */
+      height: auto;
       border-radius: 8px;
       margin-bottom: 2rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -198,7 +177,6 @@
       margin-top: 2rem;
       margin-bottom: 2rem;
     }
-
     .social-link {
       display: inline-block;
       width: 60px;
@@ -208,13 +186,11 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-
     .social-link img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .social-link:hover {
       transform: translateY(-3px);
     }
@@ -225,13 +201,11 @@
       padding: 4rem 2rem;
       text-align: center;
     }
-
     .why-me h2 {
       margin-bottom: 2rem;
       text-transform: uppercase;
       font-size: 2rem;
     }
-
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -240,7 +214,6 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .card {
       background: #2a2a2a;
       border-radius: 8px;
@@ -250,13 +223,11 @@
       text-align: center;
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
-
     .card h3 {
       margin-bottom: 1rem;
       font-size: 1.3rem;
       color: #e51b23;
     }
-
     .card p {
       font-size: 1rem;
       line-height: 1.6;
@@ -267,13 +238,11 @@
       text-align: center;
       padding: 4rem 2rem;
     }
-
     .call-to-action h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
     }
-
     .call-to-action p {
       font-size: 1.1rem;
       margin-bottom: 0;
@@ -284,37 +253,31 @@
       text-align: center;
       padding: 4rem 2rem;
     }
-
     .price-list h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
     }
-
     .price-table-container {
       overflow-x: auto;
       max-width: 600px;
       margin: 0 auto;
       text-align: center;
     }
-
     table.price-table {
       width: 100%;
       border-collapse: collapse;
       color: #fff;
       text-align: center;
     }
-
     table.price-table th,
     table.price-table td {
       border: 1px solid #444;
       padding: 1rem;
     }
-
     thead tr {
       background: #2a2a2a;
     }
-
     tbody tr:nth-child(even) {
       background: #1c1c1c;
     }
@@ -326,23 +289,19 @@
       padding: 4rem 2rem;
       text-align: center;
     }
-
     .faq h2 {
       font-size: 2rem;
       margin-bottom: 2rem;
       text-transform: uppercase;
     }
-
     .faq-item {
       margin-bottom: 2rem;
     }
-
     .faq-item h3 {
       font-size: 1.1rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
-
     .faq-item p {
       line-height: 1.6;
     }
@@ -353,14 +312,13 @@
       text-align: center;
       padding: 2rem 1rem;
     }
-
     footer p {
       font-size: 0.9rem;
       color: #777;
       margin-bottom: 0;
     }
 
-    /* כפתור וואטסאפ צף (תמיד על המסך, גדול ומרוכז) */
+    /* כפתור וואטסאפ צף (גדול ומרוכז) */
     .floating-whatsapp-btn {
       position: fixed;
       bottom: 15px;
@@ -380,12 +338,10 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     .floating-whatsapp-btn img {
-      width: 28px; /* גדולים יותר */
+      width: 28px;
       height: 28px;
     }
-
     .floating-whatsapp-btn:hover {
       background: #1eb059;
     }
@@ -395,16 +351,13 @@
       body {
         text-align: center;
       }
-
       .marquee-logos img {
         height: 50px;
       }
-
       .social-link {
         width: 50px;
         height: 50px;
       }
-
       .floating-whatsapp-btn {
         bottom: 10px;
         padding: 0.8rem 1.5rem;
@@ -415,7 +368,6 @@
         height: 24px;
       }
     }
-
     @media (max-width: 768px) {
       .hero-content h1 {
         font-size: 2.2rem;
@@ -435,6 +387,17 @@
         gap: 1rem;
       }
     }
+
+    /* אנימציה ל"אני רוצה להתחיל" - אופציונלי:
+    .btn-primary {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    */
+
   </style>
 </head>
 <body>
@@ -456,9 +419,8 @@
     <div class="hero-content">
       <h1>אימוני פוקר מקצועיים</h1>
       <p>קחו את המשחק שלכם לרמה הבאה עם שחקן טורנירים מקצועי שחורש את העולם.</p>
-      <!-- כפתור שמוביל בהמשך – כרגע לא מפנה לשום עוגן, כי יש כפתור צף -->
-      <a href="#floating-whatsapp" class="btn-primary"
-         onclick="event.preventDefault();">אני רוצה להתחיל</a>
+      <!-- כפתור שיעביר למחירון -->
+      <a href="#price-list-section" class="btn-primary">אני רוצה להתחיל</a>
     </div>
   </section>
 
@@ -511,23 +473,18 @@
 
     <!-- רשתות חברתיות -->
     <div class="social-links">
-      <!-- אינסטגרם -->
       <a href="https://www.instagram.com/sosickstagram" class="social-link" target="_blank" aria-label="Instagram">
         <img src="instagram.png" alt="Instagram">
       </a>
-      <!-- פייסבוק -->
       <a href="https://www.facebook.com/Gabylivs" class="social-link" target="_blank" aria-label="Facebook">
         <img src="facebook.png" alt="Facebook">
       </a>
-      <!-- ספוטיפיי (פודקאסט) -->
       <a href="https://open.spotify.com/show/2Op6rxjHxGc01UWAiVKhRz?si=5b52795b555d45f3" class="social-link" target="_blank" aria-label="Spotify Podcast">
         <img src="spotify.png" alt="Spotify Podcast">
       </a>
-      <!-- וואטסאפ קבוצתי -->
       <a href="https://chat.whatsapp.com/LF4rfcplQtIEoWUukT5PDO" class="social-link" target="_blank" aria-label="WhatsApp Group">
         <img src="whatsapp.png" alt="WhatsApp">
       </a>
-      <!-- טוויץ' -->
       <a href="https://www.twitch.tv/kidrurim" class="social-link" target="_blank" aria-label="Twitch Channel">
         <img src="twitch.png" alt="Twitch">
       </a>
@@ -563,8 +520,8 @@
     <p>הגיע הזמן להתחיל לשחק כמו המקצוענים.</p>
   </section>
 
-  <!-- מחירון שיעורים -->
-  <section class="price-list">
+  <!-- מחירון שיעורים (טבלה) -->
+  <section class="price-list" id="price-list-section">
     <h2>מחירון שיעורים</h2>
     <div class="price-table-container">
       <table class="price-table">
@@ -604,7 +561,6 @@
   <!-- אזור שאלות נפוצות (FAQ) -->
   <section class="faq" id="faq">
     <h2>שאלות נפוצות</h2>
-
     <div class="faq-item">
       <h3>אין לי ניסיון קודם בפוקר – האם השיעורים מתאימים לי?</h3>
       <p>כן! השיעורים נבנים בהתאם לרמה ולצרכים שלך. בין אם את/ה מתחיל/ה או בעל/ת ניסיון בסיסי, נתחיל מהיסודות ונתקדם בקצב שלך.</p>
@@ -619,7 +575,7 @@
     </div>
     <div class="faq-item">
       <h3>באילו סוגי משחקים מתמקדים?</h3>
-      <p>בעיקר בטקסס הולדם (No-Limit Hold’em), אך אפשר להעמיק גם במשחקים נוספים לפי בקשת התלמידים ורמתם.</p>
+      <p>בעיקר טקסס הולדם (No-Limit Hold’em), אך ניתן להעמיק גם במשחקים נוספים לפי בקשתך.</p>
     </div>
     <div class="faq-item">
       <h3>מה קורה אם לא אוכל להשלים את כל השעות ברצף?</h3>
@@ -627,7 +583,7 @@
     </div>
     <div class="faq-item">
       <h3>כיצד ניתן לשלם?</h3>
-      <p>אפשר במזומן, העברה בנקאית או באמצעי תשלום מקוונים. נדבר על כך בפרטי ונמצא את מה שהכי נוח לך.</p>
+      <p>אפשר במזומן, העברה בנקאית או באמצעי תשלום מקוונים. נדבר על כך בפרטי ונמצא את הדרך הנוחה לך.</p>
     </div>
     <div class="faq-item">
       <h3>האם השיעורים מתאימים גם לשחקנים מתקדמים?</h3>
