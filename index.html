@@ -58,29 +58,32 @@
       text-decoration: underline;
     }
 
-    /* אזור Hero */
+    /* אזור Hero עם תמונת Kidrurim  */
     .hero {
-      height: 100vh;
-      background: url('https://via.placeholder.com/1600x900?text=%D7%A8%D7%A7%D7%A2+%D7%94%D7%99%D7%A8%D7%95') center center / cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 2rem;
       position: relative;
+      height: 100vh;         /* גובה מלא של המסך */
+      overflow: hidden;      
+      display: flex;
+      align-items: center;   /* מרכז אנכית */
+      justify-content: center; /* מרכז אופקית */
+      text-align: center;
+      background: #000;      /* צבע רקע בסיסי מאחורי התמונה */
     }
     .hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: url("kidrurimlogo.png") center center no-repeat;
+      background-size: contain; /* כדי שלא ייחתך (אפשר cover אם רוצים למלא) */
+      opacity: 0.3;            /* 30% שקיפות */
       z-index: 1;
     }
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 2; /* מעל התמונה */
       max-width: 800px;
       margin: 0 auto;
+      padding: 0 1rem; /* ריווח צידי לטקסט */
     }
     .hero-content h1 {
       font-size: 3rem;
@@ -297,16 +300,32 @@
       margin-bottom: 2rem;
       text-transform: uppercase;
     }
-    .faq-item {
-      margin-bottom: 2rem;
-    }
-    .faq-item h3 {
-      font-size: 1.1rem;
+    /* מראה בסיסי של השאלה ככפתור + התשובה באקורדיון */
+    .faq-question {
+      cursor: pointer;
+      background: #2a2a2a;
+      border: none;
+      width: 100%;
+      text-align: right;
+      font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 5px;
+      color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
     }
-    .faq-item p {
-      line-height: 1.6;
+    .faq-question:hover {
+      background: #333;
+    }
+    .faq-answer {
+      display: none; /* מוסתרת כברירת מחדל */
+      text-align: right;
+      background: #1c1c1c;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
     }
 
     /* כותרת תחתונה (Footer) */
@@ -378,16 +397,22 @@
       .hero-content p {
         font-size: 1rem;
       }
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .faq-question {
+        text-align: center; /* במובייל אפשר להקטין */
+      }
+      .faq-answer {
+        text-align: center;
+      }
       .cards {
         flex-direction: column;
         align-items: center;
       }
       .card {
         max-width: 90%;
-      }
-      header {
-        flex-direction: column;
-        gap: 1rem;
       }
     }
 
@@ -406,7 +431,6 @@
         <li>
           <a href="/EN" class="lang-btn">English</a>
         </li>
-        
       </ul>
     </nav>
   </header>
@@ -558,33 +582,54 @@
   <!-- אזור שאלות נפוצות (FAQ) -->
   <section class="faq" id="faq">
     <h2>שאלות נפוצות</h2>
+
     <div class="faq-item">
-      <h3>אין לי ניסיון קודם בפוקר – האם השיעורים מתאימים לי?</h3>
-      <p>כן! השיעורים נבנים בהתאם לרמה ולצרכים שלך. בין אם את/ה מתחיל/ה או בעל/ת ניסיון בסיסי, נתחיל מהיסודות ונתקדם בקצב שלך.</p>
+      <button class="faq-question">אין לי ניסיון קודם בפוקר – האם השיעורים מתאימים לי?</button>
+      <div class="faq-answer">
+        <p>כן! השיעורים נבנים בהתאם לרמה ולצרכים שלך. בין אם את/ה מתחיל/ה או בעל/ת ניסיון בסיסי, נתחיל מהיסודות ונתקדם בקצב שלך.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>כמה זמן לוקח להגיע לרמה מקצועית?</h3>
-      <p>זה תלוי בתדירות השיעורים, ברמת ההשקעה ובמטרות האישיות שלך. יש תלמידים שמשפרים משמעותית תוך מספר שבועות, ואחרים מעדיפים תהליך ממושך ומעמיק.</p>
+      <button class="faq-question">כמה זמן לוקח להגיע לרמה מקצועית?</button>
+      <div class="faq-answer">
+        <p>זה תלוי בתדירות השיעורים, ברמת ההשקעה ובמטרות האישיות שלך. יש תלמידים שמשפרים משמעותית תוך מספר שבועות, ואחרים מעדיפים תהליך ממושך ומעמיק.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>האם השיעורים מתקיימים פרונטלית או אונליין?</h3>
-      <p>ניתן לערוך שיעורים באופן מקוון (שיחות וידאו) או בפגישות פרונטליות – לפי העדפה שלך וזמינות.</p>
+      <button class="faq-question">האם השיעורים מתקיימים פרונטלית או אונליין?</button>
+      <div class="faq-answer">
+        <p>ניתן לערוך שיעורים באופן מקוון (שיחות וידאו) או בפגישות פרונטליות – לפי העדפה שלך וזמינות.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>באילו סוגי משחקים מתמקדים?</h3>
-      <p>בעיקר טקסס הולדם (No-Limit Hold’em), אך ניתן להעמיק גם במשחקים נוספים לפי בקשתך.</p>
+      <button class="faq-question">באילו סוגי משחקים מתמקדים?</button>
+      <div class="faq-answer">
+        <p>בעיקר טקסס הולדם (No-Limit Hold’em), אך ניתן להעמיק גם במשחקים נוספים לפי בקשתך.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>מה קורה אם לא אוכל להשלים את כל השעות ברצף?</h3>
-      <p>ניתן לפרוס את השעות על פני תקופה גמישה. אם יש אילוצים מיוחדים, נמצא פתרון מותאם.</p>
+      <button class="faq-question">מה קורה אם לא אוכל להשלים את כל השעות ברצף?</button>
+      <div class="faq-answer">
+        <p>ניתן לפרוס את השעות על פני תקופה גמישה. אם יש אילוצים מיוחדים, נמצא פתרון מותאם.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>כיצד ניתן לשלם?</h3>
-      <p>אפשר במזומן, העברה בנקאית או באמצעי תשלום מקוונים. נדבר על כך בפרטי ונמצא את הדרך הנוחה לך.</p>
+      <button class="faq-question">כיצד ניתן לשלם?</button>
+      <div class="faq-answer">
+        <p>אפשר במזומן, העברה בנקאית או באמצעי תשלום מקוונים. נדבר על כך בפרטי ונמצא את הדרך הנוחה לך.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>האם השיעורים מתאימים גם לשחקנים מתקדמים?</h3>
-      <p>בהחלט. אפשר להתמקד בנושאים מתקדמים כמו ניתוח טווחים, GTO, ICM בטורנירים ועוד, בהתאם לצורך האישי שלך.</p>
+      <button class="faq-question">האם השיעורים מתאימים גם לשחקנים מתקדמים?</button>
+      <div class="faq-answer">
+        <p>בהחלט. אפשר להתמקד בנושאים מתקדמים כמו ניתוח טווחים, GTO, ICM בטורנירים ועוד, בהתאם לצורך האישי שלך.</p>
+      </div>
     </div>
   </section>
 
@@ -602,6 +647,16 @@
     כתבו לי עכשיו
     <img src="whatsapp.png" alt="WhatsApp icon">
   </a>
+
+  <!-- סקריפט להפעלת אקורדיון (FAQ) -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+      });
+    });
+  </script>
 
 </body>
 </html>
