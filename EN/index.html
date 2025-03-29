@@ -58,29 +58,36 @@
       text-decoration: underline;
     }
 
-    /* Hero Section */
+    /* Hero Section with kidrurimlogo.png as background, fade-in effect */
     .hero {
-      height: 100vh;
-      background: url('https://via.placeholder.com/1600x900?text=Hero+Background') center center / cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 2rem;
       position: relative;
+      height: 100vh; /* fills the entire viewport height */
+      overflow: hidden;
+      display: flex;
+      align-items: center;   /* center vertically */
+      justify-content: center; /* center horizontally */
+      text-align: center;
+      background: #000; /* fallback background behind the image */
     }
     .hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: url("kidrurimlogo.png") center center no-repeat;
+      background-size: contain;  /* or 'cover' to fill completely (may cut edges) */
       z-index: 1;
+      opacity: 0;               /* start transparent */
+      animation: fadeInBg 2s forwards; /* fade to 30% over 2 seconds */
+    }
+    @keyframes fadeInBg {
+      to { opacity: 0.3; }
     }
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 2; /* above the background */
       max-width: 800px;
       margin: 0 auto;
+      padding: 0 1rem;
     }
     .hero-content h1 {
       font-size: 3rem;
@@ -164,7 +171,7 @@
       display: block;
       margin: 0 auto;
       width: 100%;
-      max-width: 600px; 
+      max-width: 600px;
       height: auto;
       border-radius: 8px;
       margin-bottom: 2rem;
@@ -284,7 +291,7 @@
       background: #1c1c1c;
     }
 
-    /* FAQ */
+    /* FAQ (Collapsible) */
     .faq {
       max-width: 800px;
       margin: 0 auto;
@@ -296,16 +303,32 @@
       margin-bottom: 2rem;
       text-transform: uppercase;
     }
-    .faq-item {
-      margin-bottom: 2rem;
-    }
-    .faq-item h3 {
-      font-size: 1.1rem;
+    /* Turn each question into a button, and the answer into a collapsible div */
+    .faq-question {
+      cursor: pointer;
+      background: #2a2a2a;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 5px;
+      color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
     }
-    .faq-item p {
-      line-height: 1.6;
+    .faq-question:hover {
+      background: #333;
+    }
+    .faq-answer {
+      display: none; /* hidden by default */
+      background: #1c1c1c;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      text-align: left;
     }
 
     /* Footer */
@@ -369,6 +392,13 @@
         width: 24px; 
         height: 24px;
       }
+      /* Center FAQ text on small screens if desired */
+      .faq-question {
+        text-align: center;
+      }
+      .faq-answer {
+        text-align: center;
+      }
     }
     @media (max-width: 768px) {
       .hero-content h1 {
@@ -377,6 +407,10 @@
       .hero-content p {
         font-size: 1rem;
       }
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
       .cards {
         flex-direction: column;
         align-items: center;
@@ -384,11 +418,8 @@
       .card {
         max-width: 90%;
       }
-      header {
-        flex-direction: column;
-        gap: 1rem;
-      }
     }
+    
   </style>
 </head>
 <body>
@@ -546,36 +577,57 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ (Collapsible) -->
   <section class="faq" id="faq">
     <h2>FAQ</h2>
+    <!-- Each question and answer in an accordion-like structure -->
     <div class="faq-item">
-      <h3>I have no poker experience. Are the lessons suitable for me?</h3>
-      <p>Absolutely! The coaching is built to your level. Whether you're completely new or have basic experience, we'll start with fundamentals and progress at your pace.</p>
+      <button class="faq-question">I have no poker experience. Are the lessons suitable for me?</button>
+      <div class="faq-answer">
+        <p>Absolutely! The coaching is built to your level. Whether you're completely new or have basic experience, we'll start with fundamentals and progress at your pace.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>How long does it take to reach a professional level?</h3>
-      <p>It depends on lesson frequency, your practice, and personal goals. Some students see major improvements within weeks, while others opt for a longer, deeper journey.</p>
+      <button class="faq-question">How long does it take to reach a professional level?</button>
+      <div class="faq-answer">
+        <p>It depends on lesson frequency, your practice, and personal goals. Some students see major improvements within weeks, while others opt for a longer, deeper journey.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>Are sessions in-person or online?</h3>
-      <p>We can arrange lessons online (video calls) or face-to-face, depending on your preference and availability.</p>
+      <button class="faq-question">Are sessions in-person or online?</button>
+      <div class="faq-answer">
+        <p>We can arrange lessons online (video calls) or face-to-face, depending on your preference and availability.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>Which types of games do we focus on?</h3>
-      <p>Mainly No-Limit Hold’em, but we can explore other variants (Omaha, Mixed Games) upon request.</p>
+      <button class="faq-question">Which types of games do we focus on?</button>
+      <div class="faq-answer">
+        <p>Mainly No-Limit Hold’em, but we can explore other variants (Omaha, Mixed Games) upon request.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>What if I can't complete all the hours consecutively?</h3>
-      <p>We can spread the hours out over a flexible schedule. If there are special constraints, we'll find a solution.</p>
+      <button class="faq-question">What if I can't complete all the hours consecutively?</button>
+      <div class="faq-answer">
+        <p>We can spread the hours out over a flexible schedule. If there are special constraints, we'll find a solution.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>How do I pay?</h3>
-      <p>Payment can be made in cash, bank transfer, or other online methods. We'll figure out the most convenient way for you.</p>
+      <button class="faq-question">How do I pay?</button>
+      <div class="faq-answer">
+        <p>Payment can be made in cash, bank transfer, or other online methods. We'll figure out the most convenient way for you.</p>
+      </div>
     </div>
+
     <div class="faq-item">
-      <h3>Are lessons also suitable for advanced players?</h3>
-      <p>Definitely. We can delve into advanced topics like range analysis, GTO, ICM in tournaments, and more, depending on your needs.</p>
+      <button class="faq-question">Are lessons also suitable for advanced players?</button>
+      <div class="faq-answer">
+        <p>Definitely. We can delve into advanced topics like range analysis, GTO, ICM in tournaments, and more, depending on your needs.</p>
+      </div>
     </div>
   </section>
 
@@ -593,6 +645,18 @@
     <img src="whatsapp.png" alt="WhatsApp icon">
   </a>
 
+  <!-- Script for the FAQ collapsible effect -->
+  <script>
+    // FAQ Collapsible
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(questionBtn => {
+      questionBtn.addEventListener('click', () => {
+        const answerDiv = questionBtn.nextElementSibling;
+        answerDiv.style.display = (answerDiv.style.display === 'block') ? 'none' : 'block';
+      });
+    });
+  </script>
+
 </body>
 </html>
-
